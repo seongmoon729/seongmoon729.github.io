@@ -120,7 +120,7 @@ export default function Home() {
         <Section id="about" eyebrow="01 / Profile" title="Machine perception, before and after compression.">
           <div className="profile-grid">
             <p className="lead">I develop learned, task-aware representations that jointly optimize compression efficiency and downstream vision performance.</p>
-            <p>I am a Ph.D. candidate in the Department of Artificial Intelligence at Sungkyunkwan University, advised by <strong>Prof. Jong Hwan Ko</strong>. My research centers on image compression within computer vision, spanning low-level optimization and high-level tasks including classification, object detection, and segmentation. More recently, I have been working on high-level vision directly in the RAW domain, prior to the image signal processing pipeline.</p>
+            <p>I am a Ph.D. candidate in the Department of Artificial Intelligence at Sungkyunkwan University, advised by <strong>Prof. Jong Hwan Ko</strong>. My research centers on image compression within computer vision, spanning low-level optimization and high-level tasks including classification, object detection, and segmentation. More recently, I have been working on high-level vision directly in the RAW domain, prior to the image signal processing pipeline. <strong>Available for full-time roles starting March 2027.</strong></p>
           </div>
           <div className="focus-strip" aria-label="Research focus areas">
             <span>Image Compression</span><span>Machine Perception</span><span>RAW-domain Vision</span><span>Edge Intelligence</span>
@@ -129,7 +129,7 @@ export default function Home() {
 
         <Section id="experience" eyebrow="02 / Trajectory" title="Education & research">
           <div className="timeline">
-            <Entry title="Ph.D. in Artificial Intelligence" meta="Sungkyunkwan University (SKKU)" place="Suwon, Korea" date="Mar. 2020 — Present">
+            <Entry title="Ph.D. in Artificial Intelligence" meta="Sungkyunkwan University (SKKU)" place="Suwon, Korea" date="Mar. 2020 - Expected Feb. 2027">
               <p className="detail">Outstanding Scholarship, awarded to promising students in the Department of Artificial Intelligence.</p>
             </Entry>
             <Entry title="Graduate Researcher" meta="IRIS Lab, Sungkyunkwan University" place="Suwon, Korea" date="Mar. 2020 — Present">

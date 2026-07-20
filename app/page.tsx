@@ -1,187 +1,127 @@
-const selectedPublications = [
-  { title: "Foundation Model-Guided RGB-to-RAW Generation with Spectral Supervision for RAW-Domain Detection", venue: "IEEE AVSS", year: "Sep. 2026", role: "1st Author" },
-  { title: "UICAM: A Codec-Transferable Adapter for Machine-Oriented Image Compression", venue: "IEEE AVSS", year: "Sep. 2026", role: "1st Author" },
-  { title: "Test-Time Fine-Tuning of Image Compression Models for Multi-Task Adaptability", venue: "IEEE CVPR", year: "Mar. 2025", role: "2nd Author" },
-  { title: "Adaptive Image Downscaling for Rate-Accuracy-Latency Optimization of Task-Target Image Compression", venue: "IEEE AICAS", year: "Feb. 2024", role: "2nd Author" },
-  { title: "Rate-Controllable and Target-Dependent JPEG-Based Image Compression Using Feature Modulation", venue: "IEEE ICME Workshop", year: "Apr. 2023", role: "1st Author" },
-  { title: "An Overhead-Free Region-Based JPEG Framework for Task-Driven Image Compression", venue: "Pattern Recognition Letters", year: "Nov. 2022", role: "2nd Author" },
+const selected = [
+  ["Foundation Model-Guided RGB-to-RAW Generation with Spectral Supervision for RAW-Domain Detection", "IEEE AVSS", "Sep. 2026", "1st Author"],
+  ["UICAM: A Codec-Transferable Adapter for Machine-Oriented Image Compression", "IEEE AVSS", "Sep. 2026", "1st Author"],
+  ["Test-Time Fine-Tuning of Image Compression Models for Multi-Task Adaptability", "IEEE CVPR", "Mar. 2025", "2nd Author"],
+  ["Adaptive Image Downscaling for Rate-Accuracy-Latency Optimization of Task-Target Image Compression", "IEEE AICAS", "Feb. 2024", "2nd Author"],
+  ["Rate-Controllable and Target-Dependent JPEG-Based Image Compression Using Feature Modulation", "IEEE ICME Workshop", "Apr. 2023", "1st Author"],
+  ["An Overhead-Free Region-Based JPEG Framework for Task-Driven Image Compression", "Pattern Recognition Letters", "Nov. 2022", "2nd Author"],
 ];
 
-const conferencePublications = [
-  ...selectedPublications.slice(0, 4),
-  { title: "Kernel Shape Control for Row-Efficient Convolution on Processing-In-Memory Arrays", venue: "IEEE ICCAD", year: "Jul. 2023", role: "4th Author" },
-  selectedPublications[4],
+const conference = [
+  selected[0], selected[1], selected[2], selected[3],
+  ["Kernel Shape Control for Row-Efficient Convolution on Processing-In-Memory Arrays", "IEEE ICCAD", "Jul. 2023", "4th Author"],
+  selected[4],
 ];
 
-const journalPublications = [
-  { title: "A Codec-Transferable Adapter for Machine-Oriented Image Compression Across Multiple Vision Tasks", venue: "Preprint · Under review for TCSVT", year: "2025", role: "1st Author" },
-  { title: "KERNTROL: Kernel Shape Control Toward Ultimate Memory Utilization for In-Memory Convolutional Weight Mapping", venue: "IEEE TCAS-I", year: "Feb. 2024", role: "4th Author" },
-  { title: "An Overhead-Free Region-Based JPEG Framework for Task-Driven Image Compression", venue: "Pattern Recognition Letters", year: "Nov. 2022", role: "2nd Author" },
+const journals = [
+  ["A Codec-Transferable Adapter for Machine-Oriented Image Compression Across Multiple Vision Tasks", "Preprint · Under review for TCSVT", "2025", "1st Author"],
+  ["KERNTROL: Kernel Shape Control Toward Ultimate Memory Utilization for In-Memory Convolutional Weight Mapping", "IEEE TCAS-I", "Feb. 2024", "4th Author"],
+  ["An Overhead-Free Region-Based JPEG Framework for Task-Driven Image Compression", "Pattern Recognition Letters", "Nov. 2022", "2nd Author"],
 ];
 
-const standards = [
-  { title: "[VCM] Neural network based post-filter for VCM", code: "ISO/IEC JTC1 / SC29 / WG4 m71305", place: "Geneva", date: "Jan. 2025" },
-  { title: "[VCM] Neural network based pre-filter for VCM", code: "ISO/IEC JTC1 / SC29 / WG4 m71304", place: "Geneva", date: "Jan. 2025" },
-  { title: "[VCM] Learned joint filter network for VCM", code: "ISO/IEC JTC1 / SC29 / WG4 m69990", place: "Kemer", date: "Nov. 2024" },
-  { title: "[VCM] Learned pre-filter network for VCM", code: "ISO/IEC JTC1 / SC29 / WG4 m69085", place: "Sapporo", date: "Jan. 2024" },
-];
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
 
-const honors = [
-  ["2024", "3rd Place", "DAC System Design Contest — GPU Track", "San Francisco, USA"],
-  ["2020", "2nd Place", "Artificial Intelligence Grand Challenge, Ministry of Science and ICT", "Korea"],
-  ["2019", "Honorable Mention", "Big Data Center Open Innovation Challenge", "Seongnam, Korea"],
-  ["2019", "Outstanding Work Award", "Capstone Design Project, SKKU", "Suwon, Korea"],
-  ["2018", "Dean’s List Award", "Fall semester, SKKU", "Suwon, Korea"],
-  ["2017", "Dean’s List Award", "Fall semester, SKKU", "Suwon, Korea"],
-];
-
-function Section({ id, eyebrow, title, children }: { id: string; eyebrow: string; title: string; children: React.ReactNode }) {
-  return (
-    <section id={id} className="cv-section">
-      <header className="section-heading">
-        <span>{eyebrow}</span>
-        <h2>{title}</h2>
-      </header>
-      {children}
-    </section>
-  );
+function CvSection({ title, children, compact = false }: { title: string; children: React.ReactNode; compact?: boolean }) {
+  return <section className={`cv-section${compact ? " compact" : ""}`}><div className="section-title"><h2>{title}</h2><span /></div>{children}</section>;
 }
 
-function Entry({ title, meta, place, date, children }: { title: string; meta: string; place?: string; date?: string; children?: React.ReactNode }) {
-  return (
-    <article className="entry">
-      <div className="entry-main">
-        <h3>{title}</h3>
-        <p className="entry-meta">{meta}</p>
-        {children}
-      </div>
-      {(place || date) && <div className="entry-aside"><strong>{place}</strong><span>{date}</span></div>}
-    </article>
-  );
+function Entry({ title, organization, location, date, children }: { title: string; organization: string; location?: string; date?: string; children?: React.ReactNode }) {
+  return <article className="entry"><div className="entry-copy"><h3>{title}</h3><p>{organization}</p>{children}</div><div className="entry-facts"><strong>{location}</strong><span>{date}</span></div></article>;
 }
 
-function PublicationList({ items }: { items: typeof selectedPublications }) {
-  return (
-    <div className="publication-list">
-      {items.map((paper) => (
-        <article className="publication" key={`${paper.title}-${paper.venue}`}>
-          <div><h3>{paper.title}</h3><p>{paper.role}</p></div>
-          <div className="publication-meta"><strong>{paper.venue}</strong><span>{paper.year}</span></div>
-        </article>
-      ))}
-    </div>
-  );
+function Pub({ paper }: { paper: string[] }) {
+  return <article className="pub"><div><h3>{paper[0]}</h3><p>{paper[3]}</p></div><div><strong>{paper[1]}</strong><span>{paper[2]}</span></div></article>;
+}
+
+function Footer({ page }: { page: number }) {
+  return <footer className="page-footer"><span>July 20, 2026</span><span>Seongmoon Jeong · Curriculum Vitae</span><span>{page}</span></footer>;
 }
 
 export default function Home() {
-  return (
-    <main>
-      <aside className="rail" aria-label="CV navigation">
-        <a className="monogram" href="#top" aria-label="Back to top">SJ</a>
-        <nav>
-          <a href="#about">About</a>
-          <a href="#experience">Experience</a>
-          <a href="#publications">Publications</a>
-          <a href="#activities">Activities</a>
-          <a href="#mentoring">Mentoring</a>
-        </nav>
-        <a className="rail-email" href="mailto:jsm21star@gmail.com">Email</a>
-      </aside>
+  return <main className="document-shell">
+    <nav className="document-toolbar" aria-label="Document actions">
+      <div><strong>Seongmoon Jeong</strong><span>HTML Curriculum Vitae</span></div>
+      <div className="toolbar-links"><a href="#page-1">01</a><a href="#page-2">02</a><a href="#page-3">03</a><a className="download" href={`${basePath}/cv.pdf`} download>Download TeX PDF</a></div>
+    </nav>
 
-      <div className="page" id="top">
-        <header className="hero">
-          <div className="hero-topline"><span>Curriculum Vitae</span><span>Suwon, Republic of Korea</span></div>
-          <div className="hero-title">
-            <div>
-              <p className="kicker">Ph.D. Candidate · Computer Vision Researcher</p>
-              <h1><span>Seongmoon</span> Jeong</h1>
-              <p className="affiliation">IRIS Lab · Sungkyunkwan University</p>
-            </div>
-            <div className="hero-actions">
-              <a className="button primary" href="mailto:jsm21star@gmail.com">Get in touch</a>
-              <a className="button" href="/cv.pdf" download>Download PDF</a>
-            </div>
-          </div>
-          <div className="contact-row">
-            <a href="mailto:jsm21star@gmail.com">jsm21star@gmail.com</a>
-            <a href="tel:+821047328047">+82 10-4732-8047</a>
-            <span>AI · Compression · RAW Vision</span>
-          </div>
+    <div className="paper-stack">
+      <article className="paper" id="page-1">
+        <header className="cv-header">
+          <p className="name"><span>Seongmoon</span> Jeong</p>
+          <p className="position">Ph.D. Candidate</p>
+          <p className="address">IRIS Lab · Sungkyunkwan University · Suwon, Republic of Korea</p>
+          <div className="contact"><a href="tel:+821047328047"><i>M</i> +82 10-4732-8047</a><b>·</b><a href="mailto:jsm21star@gmail.com"><i>@</i> jsm21star@gmail.com</a></div>
         </header>
 
-        <Section id="about" eyebrow="01 / Profile" title="Machine perception, before and after compression.">
-          <div className="profile-grid">
-            <p className="lead">I develop learned, task-aware representations that jointly optimize compression efficiency and downstream vision performance.</p>
-            <p>I am a Ph.D. candidate in the Department of Artificial Intelligence at Sungkyunkwan University, advised by <strong>Prof. Jong Hwan Ko</strong>. My research centers on image compression within computer vision, spanning low-level optimization and high-level tasks including classification, object detection, and segmentation. More recently, I have been working on high-level vision directly in the RAW domain, prior to the image signal processing pipeline.</p>
-          </div>
-          <div className="focus-strip" aria-label="Research focus areas">
-            <span>Image Compression</span><span>Machine Perception</span><span>RAW-domain Vision</span><span>Edge Intelligence</span>
-          </div>
-        </Section>
+        <p className="summary">I am a Ph.D. candidate in the Department of Artificial Intelligence at Sungkyunkwan University, advised by <strong>Prof. Jong Hwan Ko</strong>. My research centers on <strong>image compression</strong> within computer vision, spanning both low-level optimization and its impact on high-level tasks such as classification, object detection, and segmentation. While conventional compression is designed for human perception, I investigate how visual information can be encoded to better serve <strong>machine perception</strong>. In particular, I develop <strong>learned, task-aware representations</strong> that jointly optimize compression efficiency and downstream vision performance. More recently, I have been working on high-level vision directly in the <strong>RAW domain</strong>, prior to the image signal processing pipeline. My long-term goal is to enable communication-efficient intelligent systems for autonomous systems and edge-based machine vision.</p>
 
-        <Section id="experience" eyebrow="02 / Trajectory" title="Education & research">
-          <div className="timeline">
-            <Entry title="Ph.D. in Artificial Intelligence" meta="Sungkyunkwan University (SKKU)" place="Suwon, Korea" date="Mar. 2020 — Present">
-              <p className="detail">Outstanding Scholarship, awarded to promising students in the Department of Artificial Intelligence.</p>
-            </Entry>
-            <Entry title="Graduate Researcher" meta="IRIS Lab, Sungkyunkwan University" place="Suwon, Korea" date="Mar. 2020 — Present">
-              <ul><li>General Codec Adapter for Machines</li><li>Learned Image Compression Adapter for Machines</li><li>Efficient JPEG Modification for Machines</li></ul>
-            </Entry>
-            <Entry title="B.S. in Electronic and Electrical Engineering" meta="Sungkyunkwan University (SKKU)" place="Suwon, Korea" date="Mar. 2013 — Feb. 2020">
-              <p className="detail">GPA: 3.84 / 4.5 · Top 6.6%</p>
-            </Entry>
-          </div>
-          <div className="subsection">
-            <h3 className="subsection-title">Selected projects</h3>
-            <div className="project-grid">
-              <article><span>2023 — 2024</span><h3>Video Coding for Machines</h3><p>Lead Researcher · IRIS Lab, SKKU</p><small>Media Research Division, ETRI</small></article>
-              <article><span>2022</span><h3>Adaptive and Efficient Preprocessing and Coding for Machine Vision Tasks and Input Images</h3><p>Lead Researcher · IRIS Lab, SKKU</p><small>Media Research Division, ETRI</small></article>
-            </div>
-          </div>
-        </Section>
+        <CvSection title="Education">
+          <Entry title="Ph.D. in Artificial Intelligence" organization="Sungkyunkwan University (SKKU)" location="Suwon, Korea" date="Mar. 2020 — Present"><p className="note">Outstanding Scholarship, awarded to promising students in the Department of Artificial Intelligence.</p></Entry>
+          <Entry title="B.S. in Electronic and Electrical Engineering" organization="Sungkyunkwan University (SKKU)" location="Suwon, Korea" date="Mar. 2013 — Feb. 2020"><p className="note">GPA: 3.84 / 4.5 · Top 6.6%</p></Entry>
+        </CvSection>
 
-        <Section id="publications" eyebrow="03 / Research output" title="Selected publications">
-          <PublicationList items={selectedPublications} />
-          <details className="all-publications">
-            <summary>View full publication list <span>+</span></summary>
-            <div className="publication-group"><h3>International Conference</h3><PublicationList items={conferencePublications} /></div>
-            <div className="publication-group"><h3>International Journal</h3><PublicationList items={journalPublications} /></div>
-          </details>
-        </Section>
+        <CvSection title="Research Experience">
+          <Entry title="Graduate Researcher" organization="IRIS Lab, Sungkyunkwan University (SKKU)" location="Suwon, Korea" date="Mar. 2020 — Present"><ul><li>General Codec Adapter for Machines</li><li>Learned Image Compression Adapter for Machines</li><li>Efficient JPEG Modification for Machines</li></ul></Entry>
+        </CvSection>
 
-        <Section id="activities" eyebrow="04 / Service & recognition" title="Standards and honors">
-          <div className="two-column">
-            <div>
-              <h3 className="subsection-title">Standardization activities</h3>
-              <div className="compact-list">{standards.map((item) => <article key={item.code}><h3>{item.title}</h3><p>{item.code}</p><span>{item.place} · {item.date}</span></article>)}</div>
-            </div>
-            <div>
-              <h3 className="subsection-title">Honors & awards</h3>
-              <div className="honor-list">{honors.map(([year, award, event, place]) => <article key={`${year}-${award}`}><span>{year}</span><div><h3>{award}</h3><p>{event}</p><small>{place}</small></div></article>)}</div>
-            </div>
+        <CvSection title="Project Experience">
+          <Entry title="Video Coding for Machines" organization="Lead Student Researcher · IRIS Lab, SKKU" location="Media Research Division, ETRI" date="2023 — 2024" />
+          <Entry title="Adaptive and Efficient Preprocessing and Coding for Machine Vision Tasks and Input Images" organization="Lead Student Researcher · IRIS Lab, SKKU" location="Media Research Division, ETRI" date="2022" />
+        </CvSection>
+
+        <CvSection title="Selected Publications" compact>{selected.slice(0, 4).map((paper) => <Pub key={paper[0]} paper={paper} />)}</CvSection>
+        <Footer page={1} />
+      </article>
+
+      <article className="paper" id="page-2">
+        <CvSection title="Selected Publications" compact>{selected.slice(4).map((paper) => <Pub key={paper[0]} paper={paper} />)}</CvSection>
+
+        <CvSection title="Standardization Activities" compact>
+          <Entry title="[VCM] Neural network based post-filter for VCM" organization="ISO/IEC JTC1 / SC29 / WG4 m71305" location="Geneva" date="Jan. 2025" />
+          <Entry title="[VCM] Neural network based pre-filter for VCM" organization="ISO/IEC JTC1 / SC29 / WG4 m71304" location="Geneva" date="Jan. 2025" />
+          <Entry title="[VCM] Learned joint filter network for VCM" organization="ISO/IEC JTC1 / SC29 / WG4 m69990" location="Kemer" date="Nov. 2024" />
+          <Entry title="[VCM] Learned pre-filter network for VCM" organization="ISO/IEC JTC1 / SC29 / WG4 m69085" location="Sapporo" date="Jan. 2024" />
+        </CvSection>
+
+        <CvSection title="Honors & Awards" compact>
+          <div className="honors">
+            <p><time>2024</time><strong>3rd Place</strong><span>DAC System Design Contest — GPU Track</span><em>San Francisco, USA</em></p>
+            <p><time>2020</time><strong>2nd Place</strong><span>Artificial Intelligence Grand Challenge, Ministry of Science and ICT</span><em>Korea</em></p>
+            <p><time>2019</time><strong>Honorable Mention</strong><span>Big Data Center Open Innovation Challenge</span><em>Seongnam, Korea</em></p>
+            <p><time>2019</time><strong>Outstanding Work Award</strong><span>Capstone Design Project, SKKU</span><em>Suwon, Korea</em></p>
+            <p><time>2018</time><strong>Dean’s List Award</strong><span>Fall semester, SKKU</span><em>Suwon, Korea</em></p>
+            <p><time>2017</time><strong>Dean’s List Award</strong><span>Fall semester, SKKU</span><em>Suwon, Korea</em></p>
           </div>
-        </Section>
+        </CvSection>
 
-        <Section id="mentoring" eyebrow="05 / Community" title="Mentoring, skills & reference">
-          <div className="three-column">
-            <div>
-              <h3 className="subsection-title">Student mentoring</h3>
-              <article className="person"><h3>Hangyul Choi</h3><p>M.S. student at SKKU · now at MX Business, Samsung Electronics</p><small>2023 — 2024</small><span>Adaptive Image Downscaling for Rate-Accuracy-Latency Optimization of Task-Target Image Compression</span></article>
-              <article className="person"><h3>Chanung Park</h3><p>M.S. student at SKKU</p><small>2024</small></article>
-            </div>
-            <div>
-              <h3 className="subsection-title">Skills</h3>
-              <dl className="skills"><dt>Programming</dt><dd>Python, Shell scripting, C/C++</dd><dt>ML frameworks</dt><dd>PyTorch, TensorFlow, JAX, TensorRT</dd><dt>Development</dt><dd>Docker, Conda, uv</dd></dl>
-            </div>
-            <div>
-              <h3 className="subsection-title">Reference</h3>
-              <article className="reference"><h3>Jong Hwan Ko</h3><p>Associate Professor<br />Department of ECE, SKKU</p><span>Ph.D. advisor</span><a href="https://iris.skku.edu/">iris.skku.edu</a><a href="mailto:jhko@skku.edu">jhko@skku.edu</a></article>
-            </div>
-          </div>
-        </Section>
+        <CvSection title="Full Publications" compact>
+          <h3 className="category">International Conference</h3>
+          {conference.slice(0, 5).map((paper) => <Pub key={paper[0]} paper={paper} />)}
+        </CvSection>
+        <Footer page={2} />
+      </article>
 
-        <footer className="site-footer"><strong>Seongmoon Jeong</strong><span>Computer Vision · Image Compression · Machine Perception</span><a href="#top">Back to top ↑</a></footer>
-      </div>
-    </main>
-  );
+      <article className="paper" id="page-3">
+        <h3 className="category continued">International Conference · continued</h3>
+        <Pub paper={conference[5]} />
+
+        <h3 className="category journal">International Journal</h3>
+        {journals.map((paper) => <Pub key={paper[0]} paper={paper} />)}
+
+        <CvSection title="Student Mentoring" compact>
+          <Entry title="Hangyul Choi" organization="M.S. student at Sungkyunkwan University · now at MX Business, Samsung Electronics" date="2023 — 2024"><p className="note">Adaptive Image Downscaling for Rate-Accuracy-Latency Optimization of Task-Target Image Compression</p></Entry>
+          <Entry title="Chanung Park" organization="M.S. student at Sungkyunkwan University" date="2024" />
+        </CvSection>
+
+        <CvSection title="Skills" compact>
+          <dl className="skills"><div><dt>Programming Languages</dt><dd>Python, Shell scripting, C/C++</dd></div><div><dt>ML Frameworks</dt><dd>PyTorch, TensorFlow, JAX, TensorRT</dd></div><div><dt>Development Frameworks</dt><dd>Docker, Conda, uv</dd></div></dl>
+        </CvSection>
+
+        <CvSection title="Reference" compact>
+          <Entry title="Jong Hwan Ko" organization="Associate Professor · Department of ECE, SKKU" location="Ph.D. advisor" date="Suwon, Korea"><div className="reference-links"><a href="https://iris.skku.edu/">iris.skku.edu</a><a href="mailto:jhko@skku.edu">jhko@skku.edu</a></div></Entry>
+        </CvSection>
+        <Footer page={3} />
+      </article>
+    </div>
+  </main>;
 }

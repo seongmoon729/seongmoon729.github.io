@@ -101,7 +101,13 @@ export default function Home() {
             </div>
             <div className="hero-actions">
               <a className="button primary" href="mailto:jsm21star@gmail.com">Get in touch</a>
-              <a className="button" href={`${basePath}/cv.pdf`} download="cv_jsm_2026-07-20.pdf">Download CV (PDF)</a>
+              <a
+                className="button"
+                href={`${basePath}/Seongmoon_Jeong_CV.pdf`}
+                download="Seongmoon_Jeong_CV.pdf"
+              >
+                Download CV (PDF)
+              </a>
             </div>
           </div>
           <div className="contact-row">

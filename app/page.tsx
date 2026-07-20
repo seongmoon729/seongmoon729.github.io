@@ -129,7 +129,7 @@ export default function Home() {
 
         <Section id="experience" eyebrow="02 / Trajectory" title="Education & research">
           <div className="timeline">
-            <Entry title="Ph.D. in Artificial Intelligence" meta="Sungkyunkwan University (SKKU)" place="Suwon, Korea" date="Mar. 2020 - Expected Feb. 2027">
+            <Entry title="Ph.D. in Artificial Intelligence (Expected February 2027)" meta="Sungkyunkwan University (SKKU)" place="Suwon, Korea" date="Mar. 2020 - Present">
               <p className="detail">Outstanding Scholarship, awarded to promising students in the Department of Artificial Intelligence.</p>
             </Entry>
             <Entry title="Graduate Researcher" meta="IRIS Lab, Sungkyunkwan University" place="Suwon, Korea" date="Mar. 2020 — Present">

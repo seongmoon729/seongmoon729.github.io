@@ -8,8 +8,8 @@ test("exports the academic CV as a static GitHub Pages site", async () => {
   const html = await readFile(new URL("out/index.html", projectRoot), "utf8");
 
   assert.match(html, /<title>Seongmoon Jeong/);
-  assert.match(html, /Project Experience/);
+  assert.match(html, /Machine perception, before and after compression/);
   assert.match(html, /Lead Student Researcher/);
-  assert.match(html, /Download TeX PDF/);
+  assert.match(html, /Download PDF/);
   await access(new URL("out/cv.pdf", projectRoot));
 });

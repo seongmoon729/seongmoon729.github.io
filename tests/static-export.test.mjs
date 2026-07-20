@@ -11,5 +11,6 @@ test("exports the academic CV as a static GitHub Pages site", async () => {
   assert.match(html, /Machine perception, before and after compression/);
   assert.match(html, /Lead Student Researcher/);
   assert.match(html, /Download PDF/);
+  assert.match(html, /download="cv_jsm_2026-07-20\.pdf"/);
   await access(new URL("out/cv.pdf", projectRoot));
 });

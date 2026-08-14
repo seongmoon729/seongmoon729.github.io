@@ -14,7 +14,6 @@ const conferencePublications = [
 ];
 
 const journalPublications = [
-  { title: "A Codec-Transferable Adapter for Machine-Oriented Image Compression Across Multiple Vision Tasks", venue: "Preprint · Under review for TCSVT", year: "2025", role: "1st Author" },
   { title: "KERNTROL: Kernel Shape Control Toward Ultimate Memory Utilization for In-Memory Convolutional Weight Mapping", venue: "IEEE TCAS-I", year: "Feb. 2024", role: "4th Author" },
   { title: "An Overhead-Free Region-Based JPEG Framework for Task-Driven Image Compression", venue: "Pattern Recognition Letters", year: "Nov. 2022", role: "2nd Author" },
 ];

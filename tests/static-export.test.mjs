@@ -12,6 +12,7 @@ test("exports the academic CV as a static GitHub Pages site", async () => {
   assert.match(html, /Lead Student Researcher/);
   assert.match(html, /Ph\.D\. in Artificial Intelligence \(Expected February 2027\)/);
   assert.match(html, /Available for full-time roles starting March 2027\./);
+  assert.doesNotMatch(html, /TCSVT|Under review/);
   assert.match(html, /Download CV \(PDF\)/);
   assert.match(html, /href="\/Seongmoon_Jeong_CV\.pdf"/);
   assert.match(html, /download="Seongmoon_Jeong_CV\.pdf"/);

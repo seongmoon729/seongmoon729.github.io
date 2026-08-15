@@ -15,16 +15,16 @@ const jooChan = author("Joo Chan Lee", "mp03_joochan_lee");
 const publications: Record<string, Publication> = {
   C6: { code: "C6", title: "Foundation Model-Guided RGB-to-RAW Generation with Spectral Supervision for RAW-Domain Detection", venue: "IEEE AVSS", year: "Sep. 2026", authors: [seongmoon, author("Yulhwa Kim", "yulhwa-kim"), jongHwan] },
   C5: { code: "C5", title: "UICAM: A Codec-Transferable Adapter for Machine-Oriented Image Compression", venue: "IEEE AVSS", year: "Sep. 2026", authors: [seongmoon, author("Sangwoon Kwak", "sangwoon-kwak"), author("Soon-heung Jung", "soon-heung-jung"), author("Hyon-Gon Choo", "hyon-gon-choo"), jongHwan] },
-  C4: { code: "C4", title: "Test-Time Fine-Tuning of Image Compression Models for Multi-Task Adaptability", venue: "IEEE CVPR", year: "Mar. 2025", authors: [author("Un Ki Park", "p05_unki_park"), seongmoon, author("Youngchan Jang", "youngchan-jang"), author("Gyeongmoon Park", "gyeongmoon-park"), jongHwan] },
-  C3: { code: "C3", title: "Adaptive Image Downscaling for Rate-Accuracy-Latency Optimization of Task-Target Image Compression", venue: "IEEE AICAS", year: "Feb. 2024", authors: [author("Hangyul Choi", "m16_hangyeol_choi"), seongmoon, author("Sangwoon Kwak", "sangwoon-kwak"), author("Soon-heung Jung", "soon-heung-jung"), jongHwan] },
-  C2: { code: "C2", title: "Kernel Shape Control for Row-Efficient Convolution on Processing-In-Memory Arrays", venue: "IEEE ICCAD", year: "Jul. 2023", authors: [author("Johnny Rhe", "mp01_johnny_rhe"), kangEun, jooChan, seongmoon, jongHwan] },
-  C1: { code: "C1", title: "Rate-Controllable and Target-Dependent JPEG-Based Image Compression Using Feature Modulation", venue: "IEEE ICME Workshop", year: "Apr. 2023", authors: [seongmoon, kangEun, jongHwan] },
-  J2: { code: "J2", title: "KERNTROL: Kernel Shape Control Toward Ultimate Memory Utilization for In-Memory Convolutional Weight Mapping", venue: "IEEE TCAS-I", year: "Feb. 2024", authors: [author("Johnny Rhe", "mp01_johnny_rhe"), kangEun, jooChan, seongmoon, jongHwan] },
-  J1: { code: "J1", title: "An Overhead-Free Region-Based JPEG Framework for Task-Driven Image Compression", venue: "Pattern Recognition Letters", year: "Nov. 2022", authors: [author("Seonghye Jeong", "m10_seonghye_jeong"), seongmoon, author("Simon S. Woo", "simon-s.-woo"), jongHwan] },
+  C4: { code: "C4", title: "Test-Time Fine-Tuning of Image Compression Models for Multi-Task Adaptability", venue: "IEEE/CVF CVPR", year: "Jun. 2025", authors: [author("Un Ki Park", "p05_unki_park"), seongmoon, author("Youngchan Jang", "youngchan-jang"), author("Gyeongmoon Park", "gyeongmoon-park"), jongHwan] },
+  C3: { code: "C3", title: "Adaptive Image Downscaling for Rate-Accuracy-Latency Optimization of Task-Target Image Compression", venue: "IEEE AICAS", year: "Apr. 2024", authors: [author("Hangyul Choi", "m16_hangyeol_choi"), seongmoon, author("Sangwoon Kwak", "sangwoon-kwak"), author("Soon-heung Jung", "soon-heung-jung"), jongHwan] },
+  C2: { code: "C2", title: "Kernel Shape Control for Row-Efficient Convolution on Processing-In-Memory Arrays", venue: "IEEE/ACM ICCAD", year: "Oct. 2023", authors: [author("Johnny Rhe", "mp01_johnny_rhe"), kangEun, jooChan, seongmoon, jongHwan] },
+  C1: { code: "C1", title: "Rate-Controllable and Target-Dependent JPEG-Based Image Compression Using Feature Modulation", venue: "IEEE ICME Workshops", year: "Jul. 2023", authors: [seongmoon, kangEun, jongHwan] },
+  J2: { code: "J2", title: "KERNTROL: Kernel Shape Control Toward Ultimate Memory Utilization for In-Memory Convolutional Weight Mapping", venue: "IEEE TCAS-I", year: "Dec. 2024", authors: [author("Johnny Rhe", "mp01_johnny_rhe"), kangEun, jooChan, seongmoon, jongHwan] },
+  J1: { code: "J1", title: "An Overhead-Free Region-Based JPEG Framework for Task-Driven Image Compression", venue: "Pattern Recognition Letters", year: "Jan. 2023", authors: [author("Seonghye Jeong", "m10_seonghye_jeong"), seongmoon, author("Simon S. Woo", "simon-s.-woo"), jongHwan] },
 };
 
 const publicationList = (codes: string[]) => codes.map((code) => publications[code]);
-const selectedPublications = publicationList(["C6", "C5", "C4", "C3", "C1", "J1"]);
+const selectedPublications = publicationList(["C6", "C5", "C4", "C3"]);
 const conferencePublications = publicationList(["C6", "C5", "C4", "C3", "C2", "C1"]);
 const journalPublications = publicationList(["J2", "J1"]);
 
@@ -148,7 +148,7 @@ export default function Home() {
         <Section id="about" eyebrow="01 / Profile" title="Machine perception, before and after compression.">
           <div className="profile-grid">
             <p className="lead">I develop learned, task-aware representations that jointly optimize compression efficiency and downstream vision performance.</p>
-            <p>I am a Ph.D. candidate in the Department of Artificial Intelligence at Sungkyunkwan University, advised by <strong>Prof. Jong Hwan Ko</strong>. My research centers on image compression within computer vision, spanning low-level optimization and high-level tasks including classification, object detection, and segmentation. More recently, I have been working on high-level vision directly in the RAW domain, prior to the image signal processing pipeline. <strong>Available for full-time roles starting March 2027.</strong></p>
+            <p>I am a Ph.D. candidate in the Department of Artificial Intelligence at Sungkyunkwan University, advised by <strong>Prof. Jong Hwan Ko</strong>. My research centers on image compression within computer vision, spanning low-level optimization and high-level tasks including classification, object detection, and segmentation. More recently, I have been working on high-level vision directly in the RAW domain, prior to the image signal processing pipeline. I have authored or co-authored eight peer-reviewed publications, including papers at CVPR, AVSS, ICCAD, and in IEEE TCAS-I, and contributed four ISO/IEC MPEG VCM proposals. <strong>Available for full-time roles starting March 2027.</strong></p>
           </div>
           <div className="focus-strip" aria-label="Research focus areas">
             <span>Image Compression</span><span>Machine Perception</span><span>RAW-domain Vision</span><span>Edge Intelligence</span>
@@ -174,8 +174,9 @@ export default function Home() {
           <div className="subsection">
             <h3 className="subsection-title">Selected projects</h3>
             <div className="project-grid">
-              <article><span>2023 — 2024</span><h3>Video Coding for Machines</h3><p>Lead Student Researcher · IRIS Lab, SKKU</p><small>Media Research Division, ETRI</small></article>
-              <article><span>2022</span><h3>Adaptive and Efficient Preprocessing and Coding for Machine Vision Tasks and Input Images</h3><p>Lead Student Researcher · IRIS Lab, SKKU</p><small>Media Research Division, ETRI</small></article>
+              <article><span>2023 — 2024</span><h3>Video Coding for Machines</h3><p>Lead Student Researcher · IRIS Lab, SKKU</p><small>Media Research Division, ETRI · Led research on codec-transferable adaptation for machine-oriented image compression <PublicationReferences codes={["C5"]} /></small></article>
+              <article><span>2022</span><h3>Adaptive and Efficient Preprocessing and Coding for Machine Vision Tasks and Input Images</h3><p>Lead Student Researcher · IRIS Lab, SKKU</p><small>Media Research Division, ETRI · Led research on adaptive image downscaling for rate-accuracy-latency optimization <PublicationReferences codes={["C3"]} /></small></article>
+              <article><span>2025 — Present</span><h3>Multipurpose Visual Information Compression for Human and Machine Vision</h3><p>Participating Researcher · Basic Research Laboratory, IRIS Lab, SKKU</p><small>Ministry of Science and ICT (MSIT), Korea · Contributing to unified visual compression methods supporting both human viewing and machine perception</small></article>
             </div>
           </div>
         </Section>
@@ -206,8 +207,8 @@ export default function Home() {
           <div className="three-column">
             <div>
               <h3 className="subsection-title">Student mentoring</h3>
-              <article className="person"><h3>Hangyul Choi</h3><p>M.S. student at SKKU · now at MX Business, Samsung Electronics</p><small>2023 — 2024</small><span>Adaptive Image Downscaling for Rate-Accuracy-Latency Optimization of Task-Target Image Compression</span></article>
-              <article className="person"><h3>Chanung Park</h3><p>M.S. student at SKKU</p><small>2024</small></article>
+              <article className="person"><h3>Hangyul Choi</h3><p>M.S. student at SKKU · now at MX Business, Samsung Electronics</p><small>2023 — 2024</small><span>Adaptive Image Downscaling for Rate-Accuracy-Latency Optimization of Task-Target Image Compression <PublicationReferences codes={["C3"]} /></span></article>
+              <article className="person"><h3>Chanung Park</h3><p>Graduate student at SKKU</p><small>2024 — Present</small><span>Mentored and collaborated on research in Video Coding for Machines (VCM) and multipurpose visual information compression through the BRL project.</span></article>
             </div>
             <div>
               <h3 className="subsection-title">Skills</h3>

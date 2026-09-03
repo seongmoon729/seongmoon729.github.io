@@ -17,6 +17,12 @@ test("exports the academic CV as a static GitHub Pages site", async () => {
   assert.match(html, /Task-Aware Preprocessing and JPEG Coding:/);
   assert.match(html, /RAW-Domain Machine Vision:/);
   assert.doesNotMatch(html, /System-Aware Vision Acceleration/);
+  assert.match(html, /Research engineering/);
+  assert.match(html, /multi-node inference system/);
+  assert.match(html, /TensorFlow Datasets and Grain/);
+  assert.match(html, /Docker, Conda\/Mamba, uv, and Pixi/);
+  assert.doesNotMatch(html, /Tailscale/);
+  assert.doesNotMatch(html, /Google Calendar/);
   for (const code of ["C1", "C2", "C3", "C4", "C5", "C6", "J1", "J2"]) {
     assert.match(html, new RegExp(`id="full-publication-${code}"`));
   }

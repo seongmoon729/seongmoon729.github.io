@@ -179,6 +179,14 @@ export default function Home() {
               <article><span>2025 — Present</span><h3>Multipurpose Visual Information Compression for Human and Machine Vision</h3><p>Participating Researcher · Basic Research Laboratory, IRIS Lab, SKKU</p><small>Ministry of Science and ICT (MSIT), Korea · Contributing to unified visual compression methods supporting both human viewing and machine perception</small></article>
             </div>
           </div>
+          <div className="subsection research-engineering">
+            <h3 className="subsection-title">Research engineering</h3>
+            <div className="engineering-list">
+              <article><h3>Distributed evaluation</h3><p>Built a Python-based multi-node inference system for large-scale CVPR experiment evaluation, enabling parallel execution and faster research iteration.</p></article>
+              <article><h3>Input pipeline optimization</h3><p>Profiled data-loading and augmentation bottlenecks and optimized pipelines using TensorFlow Datasets and Grain, reducing input stalls during neural network experiments.</p></article>
+              <article><h3>Reproducible experimentation</h3><p>Standardized environments and automated workflows using Docker, Conda/Mamba, uv, and Pixi, improving consistency across research machines.</p></article>
+            </div>
+          </div>
         </Section>
 
         <Section id="publications" eyebrow="03 / Research output" title="Selected publications">

@@ -18,7 +18,9 @@ test("exports the academic CV as a static GitHub Pages site", async () => {
   assert.match(html, /RAW-Domain Machine Vision:/);
   assert.doesNotMatch(html, /System-Aware Vision Acceleration/);
   assert.match(html, /Research engineering/);
-  assert.match(html, /multi-node inference system/);
+  assert.match(html, /Multi-node experiment orchestration/);
+  assert.match(html, /four servers with 16 RTX 2080 Ti GPUs/);
+  assert.match(html, /sharding training and evaluation datasets across workers/);
   assert.match(html, /TensorFlow Datasets and Grain/);
   assert.match(html, /Docker, Conda\/Mamba, uv, and Pixi/);
   assert.doesNotMatch(html, /Tailscale/);

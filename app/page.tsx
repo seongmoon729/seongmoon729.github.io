@@ -182,7 +182,7 @@ export default function Home() {
           <div className="subsection research-engineering">
             <h3 className="subsection-title">Research engineering</h3>
             <div className="engineering-list">
-              <article><h3>Distributed evaluation</h3><p>Built a Python-based multi-node inference system for large-scale CVPR experiment evaluation, enabling parallel execution and faster research iteration.</p></article>
+              <article><h3>Multi-node experiment orchestration</h3><p>Built a Python-based multi-node experiment orchestration pipeline across four servers with 16 RTX 2080 Ti GPUs, spawning one process per GPU, sharding training and evaluation datasets across workers, and aggregating outputs on a head node for downstream evaluation. <PublicationReferences codes={["C4"]} /></p></article>
               <article><h3>Input pipeline optimization</h3><p>Profiled data-loading and augmentation bottlenecks and optimized pipelines using TensorFlow Datasets and Grain, reducing input stalls during neural network experiments.</p></article>
               <article><h3>Reproducible experimentation</h3><p>Standardized environments and automated workflows using Docker, Conda/Mamba, uv, and Pixi, improving consistency across research machines.</p></article>
             </div>

@@ -13,11 +13,11 @@ export const viewport: Viewport = { colorScheme: "light" };
 export const metadata: Metadata = {
   metadataBase: new URL(siteOrigin),
   title: "Seongmoon Jeong",
-  description: "Seongmoon Jeong is a Ph.D. candidate in the IRIS Lab at Sungkyunkwan University, working on image compression for machine vision, RAW-domain object detection, and agentic AI.",
+  description: "Seongmoon Jeong is a Ph.D. candidate in the IRIS Lab at Sungkyunkwan University, studying where adaptation should happen as image pipelines serve machine vision, and agent harnesses that adapt foundation models to specific tasks.",
   icons: { icon: `${basePath}/favicon.png` },
   openGraph: {
     title: "Seongmoon Jeong",
-    description: "Image Compression · Machine Perception · RAW-domain Vision",
+    description: "Adaptation for Machine Vision · Image Coding · RAW Data · Agent Harnesses",
     images: [{ url: `${basePath}/og.png`, width: 1200, height: 630 }],
   },
 };

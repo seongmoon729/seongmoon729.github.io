@@ -8,7 +8,7 @@ test("exports the research homepage and CV for GitHub Pages", async () => {
   const html = await readFile(new URL("out/index.html", projectRoot), "utf8");
 
   assert.match(html, /<h1>Seongmoon Jeong<\/h1>/);
-  assert.match(html, /agentic AI—specifically agent harnesses/);
+  assert.match(html, /agentic AI—particularly agent harnesses/);
   assert.match(html, /Publications.*Experience.*Honors &amp; Awards/s);
   assert.equal([...html.matchAll(/class="pub row"/g)].length, 9);
   assert.match(html, /four servers with 16 RTX 2080 Ti GPUs/);

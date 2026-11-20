@@ -11,7 +11,7 @@ export default function Home() {
         </figure>
         <div className="intro-text">
           <h1>Seongmoon Jeong</h1>
-          <p className="bio">I am a Ph.D. candidate in the <a href="https://iris.skku.edu/">IRIS Lab</a> at Sungkyunkwan University, advised by Prof.&nbsp;Jong&nbsp;Hwan&nbsp;Ko. My research adapts human-centric image processing and coding pipelines for machine vision, driven by a central question: <em>where should adaptation happen under real-world system and data constraints?</em> I have explored this across three layers: inside the codec (task-aware JPEG quantization tables), around unmodified codecs (codec-transferable adapters), and at the data level (RAW images synthesized from annotated RGB datasets). This same question now guides my interest in agentic AI—specifically agent harnesses, where a strong foundation model stays fixed while its surrounding tools and execution flow adapt it to specific tasks. I am available for full-time roles starting January 2027.</p>
+          <p className="bio">I am a Ph.D. candidate in the <a href="https://iris.skku.edu/">IRIS Lab</a> at Sungkyunkwan University, advised by Prof.&nbsp;Jong&nbsp;Hwan&nbsp;Ko. My research asks <em>where adaptation should happen</em> when human-centric image pipelines serve machine vision under real-world constraints—inside the codec, around unmodified codecs, or at the data level. The same question now guides my interest in agentic AI—particularly agent harnesses that adapt strong foundation models to specific tasks. I am available for full-time roles starting January 2027.</p>
           <p className="contact"><a href="mailto:jsm21star@gmail.com">Email</a><span className="sep" aria-hidden="true">/</span><a href={`${basePath}/Seongmoon_Jeong_CV.pdf`}>CV</a></p>
         </div>
       </header>
@@ -133,7 +133,7 @@ export default function Home() {
             <span className="when">2020 – Present</span>
             <div>
               <h3>Graduate Researcher<span className="org">, IRIS Lab, Sungkyunkwan University</span></h3>
-              <p className="desc">Conducting research on adapting image pipelines for machine vision across three layers: inside the codec (task-aware JPEG quantization and test-time adaptation of learned codecs), around unmodified codecs (codec-transferable pre-/post-adapters and adaptive input downscaling), and at the data level (foundation-model-guided RGB-to-RAW generation for RAW-domain object detection). Also optimized data-loading pipelines (TensorFlow Datasets, Grain) and standardized reproducible environments (Docker, Conda/Mamba, uv, Pixi).</p>
+              <p className="desc">Conducting research on adapting image pipelines for machine vision inside the codec, around unmodified codecs, and at the data level. Also optimized data-loading pipelines (TensorFlow Datasets, Grain) and standardized reproducible environments (Docker, Conda/Mamba, uv, Pixi).</p>
               <p className="sub"><strong>TTFT-IC distributed experiments.</strong> For <a href="#ttft-ic">CVPR 2025</a>, built a Python pipeline that ran one process per GPU across four servers with 16 RTX 2080 Ti GPUs, sharded training and evaluation data, and aggregated outputs on a head node, cutting one experiment cycle from about four days to 12 hours.</p>
             </div>
           </li>

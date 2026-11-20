@@ -14,11 +14,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteOrigin),
   title: "Seongmoon Jeong",
   description: "Seongmoon Jeong is a Ph.D. candidate in the IRIS Lab at Sungkyunkwan University, studying where adaptation should happen as image pipelines serve machine vision, and agent harnesses that adapt foundation models to specific tasks.",
-  icons: { icon: `${basePath}/favicon.png` },
+  icons: { icon: `${basePath}/favicon.png?v=2` },
   openGraph: {
     title: "Seongmoon Jeong",
     description: "Adaptation for Machine Vision · Image Coding · RAW Data · Agent Harnesses",
-    images: [{ url: `${basePath}/og.png`, width: 1200, height: 630 }],
+    images: [{ url: `${basePath}/og.png?v=2`, width: 1200, height: 630 }],
   },
 };
 
